@@ -1,0 +1,2 @@
+# Gleiche Zeilenenden (LF) auf allen Systemen, passend zu ruff (line-ending = "lf")
+* text=auto eol=lf

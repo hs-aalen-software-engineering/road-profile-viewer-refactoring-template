@@ -1,0 +1,51 @@
+[project]
+name = "road-profile-viewer"
+version = "0.1.0"
+description = "Interactive 2D road profile viewer with camera ray intersection using Dash and Plotly"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dash>=2.14.0",
+    "plotly>=5.18.0",
+    "numpy>=1.26.0",
+]
+
+[project.scripts]
+road-profile-viewer = "road_profile_viewer:main"
+
+[build-system]
+requires = ["uv_build>=0.8.19,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "plotly-stubs>=0.0.6",
+    "pyright>=1.1.406",
+    "ruff>=0.14.0",
+]
+
+[tool.ruff]
+line-length = 120  # Increased from 88 to accommodate longer lines
+# Markdown nicht anfassen: Neuere ruff-Versionen formatieren sonst die Codebeispiele im README.
+extend-exclude = ["*.md"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "N", "B", "C4", "UP"]
+
+[tool.ruff.format]
+line-ending = "lf"
+preview = true
+docstring-code-format = true
+
+[tool.pyright]
+# Strikte Type-Prüfung
+typeCheckingMode = "strict"
+
+# Nur Source-Dateien einschließen
+include = ["src"]
+
+# Reporting-Optionen
+reportUnknownMemberType = "warning"
+reportUnknownParameterType = "warning"
+reportUnknownVariableType = "warning"
+reportUnknownArgumentType = "warning"
